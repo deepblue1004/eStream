@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Do you want to rent a hostel? Uveve Management Hostel For Rent, Uveve is One of the Reputable Hostel Management Company That Trusted By Over Thoursands Of Tenants. Visit Us Today To Know More. ">
+	<meta name="keyword" content="Uveve, Uveve management, Uveve Hostel, Uveve Student Hostel, Uveve Hostel For Rent, Room For Rent">
+	<meta name="author" content="uveve">
+
+	<title>Contact Us | Uveve Management </title>
+
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/contactUsFAQ.css">
+	<link rel="stylesheet" href="css/media-queries.css">
+	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- Modernizer Script for old Browsers -->
+	<script src="js/jquery-1.12.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.nav.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyAKvUrN-Z_d0Zrpq_-fmAjw9zuZ9pB77EQ",
+			authDomain: "uveve-hostel-management.firebaseapp.com",
+			databaseURL: "https://uveve-hostel-management.firebaseio.com",
+			projectId: "uveve-hostel-management",
+			storageBucket: "uveve-hostel-management.appspot.com",
+			messagingSenderId: "769656976152"
+		};
+		firebase.initializeApp(config);
+	</script>
+
+	<script type="text/javascript">
+		function Toggle() {
+			$(".body-down").toggle()
+		};
+
+		function Validate() {
+			var error = false;
+			var name = $('#name').val();
+			var email = $('#email').val();
+			var subject = $('#subject').val();
+			var message = $('#message').val();
+			if (name.length == 0) {
+				var error = true;
+				$('#name').css("border-color", "#D8000C");
+			} else {
+				$('#name').css("border-color", "#666");
+			}
+			if (email.length == 0 || email.indexOf('@') == '-1') {
+				var error = true;
+				$('#email').css("border-color", "#D8000C");
+			} else {
+				$('#email').css("border-color", "#666");
+			}
+			if (subject.length == 0) {
+				var error = true;
+				$('#subject').css("border-color", "#D8000C");
+			} else {
+				$('#subject').css("border-color", "#666");
+			}
+			if (message.length == 0) {
+				var error = true;
+				$('#message').css("border-color", "#D8000C");
+			} else {
+				$('#message').css("border-color", "#666");
+			}
+
+			if (error == false) {
+				var obj = new Object();
+				obj.Name = name;
+				obj.Email = email;
+				obj.Subject = subject;
+				obj.Message = message;
+
+				var newPostKey = firebase.database().ref().child('CustomerContactForm').push().key;
+
+				var updates = {};
+				updates['/CustomerContactForm/' + newPostKey] = obj;
+
+				firebase.database().ref().update(updates).then(function () {
+					alert("Thanks for your response! We will reply you as soon as possible");
+					$('#name').val("");
+					$('#email').val("");
+					$('#subject').val("");
+					$('#message').val("");
+				});
+			}
+		};
+
+		//Translator
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
+		}
+	</script>
+
+	<script>
+		function initMap() {
+			var uluru = { lat: 4.338406, lng: 101.139150 };
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 12,
+				center: uluru
+			});
+			var marker = new google.maps.Marker({
+				position: uluru,
+				map: map
+			});
+		}
+
+		function loadScript() {
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAKvUrN-Z_d0Zrpq_-fmAjw9zuZ9pB77EQ&callback=initMap";
+			document.body.appendChild(script);
+		}
+
+		window.onload = loadScript;
+	</script>
+
+	<!-- Google Translate -->
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+
+<body id="body">
+	<header id="navigation" class="navbar navbar-inverse navbar-color">
+		<div class="container">
+			<div class="top-panel">
+				<button class="mynavtog" onclick="javascript:Toggle()">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a id="no-pad" href="#body"><img class="logo" src="img/logo.png" width="50px" height="50px" alt="uveve" /></a>
+				<div class="body-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="blog.html">News & Updates</a></li>
+						<li><a href="types">Type & Rates</a></li>
+						<li><a href="contactUs.html">Contact Us</a></li>
+						<li><a href="FAQ.html">FAQ</a></li>
+						<li><a href="SignInPage.html">Tenants Login</a></li>
+						<li id="btn-search"><i class="fa fa-search" aria-hidden="true"></i></li>
+					</ul>
+				</div>
+			</div>
+			<script>
+				(function () {
+					var cx = '005905430136159387705:v3y8chmhpfg';
+					var gcse = document.createElement('script');
+					gcse.type = 'text/javascript';
+					gcse.async = true;
+					gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(gcse, s);
+					$("#btn-search").click(function () {
+						$(".nav-search").toggle();
+					});
+				})();
+			</script>
+			<div class="nav-search">
+				<gcse:search></gcse:search>
+			</div>
+			<div class="body-down">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="blog.html">News & Updates</a></li>
+					<li><a href="types">Type & Rates</a></li>
+					<li><a href="contactUs.html">Contact Us</a></li>
+					<li><a href="FAQ.html">FAQ</a></li>
+					<li><a href="SignInPage.html">Tenants Login</a></li>
+					<li>
+						<gcse:search></gcse:search>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<!--Content-->
+	<section id="contact-us">
+		<div class="container">
+			<div class="row">
+				<div class="title text-center wow fadeIn" data-wow-duration="500ms">
+					<h2>Get In <span class="color">Touch</span></h2>
+					<div class="border"></div>
+				</div>
+
+				<div class="contact-info col-md-6 wow fadeInUp" data-wow-duration="500ms">
+					<h3 class="color">Contact Details</h3>
+					<p>YOU CAN CONTACT US VIA:</p>
+					<div id="contact-form">
+						<div class="con-info clearfix">
+							<i class="fa fa-home fa-lg"></i>
+							<span>Address: 8888, Climate Road 88, Malaysia</span>
+						</div>
+
+						<div class="con-info clearfix">
+							<i class="fa fa-phone fa-lg"></i>
+							<span>phone : +605-1234567 / +605-2345678 / +6016-5154702</span>
+						</div>
+
+						<div class="con-info clearfix">
+							<i class="fa fa-fax fa-lg"></i>
+							<span>Fax: +605-2345678</span>
+						</div>
+
+						<div class="con-info clearfix">
+							<i class="fa fa-envelope fa-lg"></i>
+							<span>Email: <u><a href="mailto:info@uveve.ml">info@uveve.ml</a></u></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="contact-form col-md-6 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+					<form id="contact-form" method="post" action="sendmail.php" role="form">
+						<h1 class="color">Contact Form</h1>
+						<div class="form-group">Name:
+							<input type="text" placeholder="Your Name" class="form-control" name="name" id="name">
+						</div>
+
+						<div class="form-group">Email:
+							<input type="email" placeholder="Your Email" class="form-control" name="email" id="email">
+						</div>
+
+						<div class="form-group">Subject:
+							<input type="text" placeholder="Subject" class="form-control" name="subject" id="subject">
+						</div>
+
+						<div class="form-group">Message:
+							<textarea rows="6" placeholder="Message" class="form-control" name="message" id="message"></textarea>
+						</div>
+
+
+						<div id="cf-submit">
+							<button type="button" id="contact-submit" class="btn btn-transparent" value="Submit" onclick="javascript:Validate()" />Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div id="map"></div>
+
+	</section>
+
+
+	<!--Content-->
+
+	<footer id="footer" class="bg-one">
+		<div class="container">
+			<div class="row wow fadeInUp" data-wow-duration="500ms">
+				<div class="col-lg-12">
+					<div class="social-icon">
+						<ul>
+							<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="https://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
+							<li><a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+						</ul>
+					</div>
+					<div class="copyright text-center">
+						<a href="index.html">
+							<img src="img/logo.png" width="80px" height="80px" alt="uveve" /> 
+						</a>
+						<br />
+
+						<p>Designed And Developed by <a href="http://www.uveve.ml"> Uveve Management</a>. Copyright &copy; 2017. All Rights Reserved.</p>
+					</div>
+					<div id="google_translate_element"></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<a href="javascript:;" id="scrollUp">
+		<i class="fa fa-angle-up fa-2x"></i>
+	</a>
+</body>
+
+</html>

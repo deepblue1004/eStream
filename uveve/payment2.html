@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pay</title>
+
+    <meta name="description" content="description">
+
+    <!-- Mobile Specific Meta
+		================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+
+    <!-- CSS
+		================================================== -->
+    <!-- Fontawesome Icon font -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/main8.css">
+    <!-- Media Queries -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+    <!--
+		Google Font
+		=========================== -->
+
+    <!-- Oswald / Title Font -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <!-- Ubuntu / Body Font -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+
+    <!-- Modernizer Script for old Browsers -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAKvUrN-Z_d0Zrpq_-fmAjw9zuZ9pB77EQ",
+            authDomain: "uveve-hostel-management.firebaseapp.com",
+            databaseURL: "https://uveve-hostel-management.firebaseio.com",
+            projectId: "uveve-hostel-management",
+            storageBucket: "uveve-hostel-management.appspot.com",
+            messagingSenderId: "769656976152"
+        };
+        firebase.initializeApp(config);
+
+    </script>
+
+</head>
+
+<body class="blog-page" id="bg-pay2">
+    <!--
+	    Start Preloader
+	    ==================================== -->
+    <div id="loading-mask">
+        <div class="loading-img">
+            <img alt="Meghna Preloader" src="img/preloader.gif" />
+        </div>
+    </div>
+    <!--
+        End Preloader
+        ==================================== -->
+
+    <!-- 
+        Fixed Navigation
+        ==================================== -->
+    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="index.html">
+                    <h1 id="logo">
+                        <img src="img/logo.png" alt="Uveve" width="50px" height="50px" />
+                    </h1>
+                </a>
+            </div>
+
+            <nav class="collapse navbar-collapse navbar-right">
+                <ul id="nav" class="nav navbar-nav">
+                    <li><a href="welcomepage.html">Welcome</a></li>
+                    <li><a href="payment1.html">Payment</a></li>
+                    <li><a href="newfeedback.html">Feedback/Complaint</a></li>
+                    <li><a href="newrating.html">Review</a></li>
+                    <li><a href="UpdateProfile.html">Update Profile</a></li>
+                    <li><a href="SignOut.html">Sign Out</a></li>
+                    <!--<li><a href="index.html#showcase">Portfolio</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                        <li><a href="index.html#contact-us">Contact</a></li>-->
+                </ul>
+
+            </nav>
+            <!-- /.navbar-collapse -->
+        </div>
+    </header>
+    <!--
+        End Fixed Navigation
+        ==================================== -->
+
+
+
+    <!--
+		Start About Section
+		==================================== -->
+    <section id="about" class="wl-one">
+        <div class="container">
+            <div class="row">
+
+                <!-- section title -->
+                <div class="title text-center wow fadeIn" data-wow-duration="1500ms">
+
+                    <h1><span class="color">Payment</span></h1>
+                    <div class="border"></div>
+                </div>
+                <!-- /section title -->
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="main-wrapper">
+
+        <!-- Header -->
+
+        <header>
+
+            <div class="container">
+
+                <div class="row">
+
+
+                    <div id="page-title-block" class="page-title block">
+
+                        <h1>&nbsp;&nbsp;&nbsp;Update Bill Payment</h1>
+
+                    </div>
+                    <!-- /page-title-block -->
+
+
+
+                </div>
+                <!-- /region -->
+
+            </div>
+            <!-- /top-content-left-region -->
+
+
+
+            <div id="top-content-right-region" class="top-content-right col-xs-12 col-md-6 text-right text-center-sm">
+
+                <div class="region">
+
+
+
+
+
+
+                </div>
+                <!-- /region -->
+
+            </div>
+            <!-- /top-content-right-region -->
+
+
+
+    </div>
+    <!-- /row -->
+
+    </div>
+    <!-- /container -->
+
+    </div>
+    <!-- /top-content-region -->
+
+
+
+    <div id="content-region" class="content region">
+
+        <div class="container">
+
+            <div class="col-xs-12 col-md-2 margin-top-sm-50">
+
+            </div>
+
+
+
+            <div class="col-xs-12 col-md-8 margin-top-sm-50">
+
+
+
+
+
+
+                <div class="alert alert-info">
+
+                    <strong>Note:<br></strong> Online Payments Done After 6PM Of 21<sup>st</sup> Of The Month Are Considered
+                    As Late Payment.
+                    <br><br>Please Write Your House &amp; Room Number As Transfer Reference If You Are Using Online Transfer.
+                    Eg: 1336G3 . <a href="#" data-toggle="modal" data-target="#myModal"><b><u>Click To View Sample</u></b></a>
+
+                    <!-- Modal -->
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                                    <h4 class="modal-title" id="myModalLabel">Reference Number Sample</h4>
+
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <img src="img/haha.png" class="img-responsive text-center" width="600px" height=="600px">
+
+                                </div>
+
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                </div>
+
+                            </div>
+                            <!-- /.modal-content -->
+
+                        </div>
+                        <!-- /.modal-dialog -->
+
+                    </div>
+                    <!-- /.modal -->
+
+                    <!-- /Modal Window -->
+
+                </div>
+
+
+
+                <div class="alert alert-info">
+
+                    <strong>Guideline:<br></strong> Please Select The Bills That You've Paid And Provide Us Your Payment
+                    References. We Will Update Your Payment Within 1-3 Working Days.
+
+                </div>
+
+
+
+                <form name="addmaid" method="POST" action="paysuccess.html">
+
+                    <table class="table table-bordered">
+
+                        <thead>
+
+                            <tr class="success">
+
+                                <td colspan="2" class="text-center"><b>Click The Following Button To Learn How To Pay Your Bill Online</b></td>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr>
+
+                                <td>
+
+                                    <p class="text-center">
+                                        <!-- http://www.kt-management.com/downloads/pbebank-guide-en.pdf -->
+                                        <b><a href="Guideline.pdf" target="_blank"><input value="How To Pay Bill Online" class="btn btn-green" type="button"></a></b>
+
+                                    </p>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+                    <!-- <form class="form-horizontal" name="form1" method="POST" action="paysuccess.html" role="form"> -->
+                    <table class="table table-striped table-bordered table-responsive">
+
+                        <thead>
+
+                            <tr class="table table-bordered">
+
+                                <td colspan="4" class="text-center tableColor"><span class="color"><b>Step 1: Select The Bills That You Want To Pay</b></span></td>
+
+                            </tr>
+
+                            <tr class="info">
+
+                                <td><strong><span class="color">Billing Date</span></strong></td>
+
+                                <td><strong><span class="color">Description</span></strong></td>
+
+                                <td><strong><span class="color">Amount</span></strong></td>
+
+                                <td>&nbsp;</td>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+                            <tr>
+
+                                <td>2017-09-01</td>
+
+                                <td>1166B4 - September 2017 Rental</td>
+
+                                <td>300</td>
+
+                                <td align="center"><input name="checkBoxPaid[]" value="September 2017 Rental" <="" td="" type="checkbox">
+
+                                </td>
+                            </tr>
+
+
+                            <tr>
+
+                                <td>2017-08-16</td>
+
+                                <td>1166B4 - Jul 2017 E</td>
+
+                                <td>23</td>
+
+                                <td align="center"><input name="checkBoxPaid[]" value="Jul 2017 E" <="" td="" type="checkbox">
+
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+
+
+                    <table class="table table-bordered">
+
+                        <thead>
+
+                            <tr class="warning">
+
+                                <td colspan="2" class="text-center"><b><span class="color">Step 2: Click The Button To Open Public Bank Website And Login Your Account.</span></b></td>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr>
+
+                                <td>
+
+                                    <p class="text-center">
+
+                                        <b><a href="https://www2.pbebank.com/pbemain.html" target="_blank"><input value="Open Public Bank Website" class="btn btn-green" type="button"></a></b>
+
+                                    </p>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+                    <table class="table table-bordered">
+
+                        <thead>
+
+                            <tr class="warning">
+
+                                <td colspan="2" class="text-center"><b><span class="color">Step 3: Pay The Selected Total Amount In Step 1 To The Following Account.</span></b></td>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr>
+
+                                <td class="info"><b><span class="color">Bank Name</span></b></td>
+
+                                <td><b>Public Bank</b></td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td class="info"><b><span class="color">Beneficiary Account No.</span></b></td>
+
+                                <td><b>318-8687-033</b></td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td class="info"><b><span class="color">Beneficiary Name</span></b></td>
+
+                                <td><b>Uveve Management</b></td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+                    <p style="margin: 30px;" class="text-center">
+
+
+
+                    </p>
+
+
+
+                    <table class="table table-bordered table.responsive">
+
+                        <thead>
+
+                            <tr class="warning">
+
+                                <td colspan="2" class="text-center"><b><span class="color">Step 4: After The Payment Is Completed, Please Enter Payment References Below.</span></b></td>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr>
+
+                                <td class="info"><b><span class="color">From Account</span></b></td>
+
+
+                                <td>
+                                    <div class="form-group">
+
+                                        <div class="col-xs-12">
+
+
+                                            <input type="text" name="msg" class="form-control" maxlength="20" size="20" name="dAcc" id="dAcc" required="required"></textarea>
+
+                                        </div>
+                                </td>
+                                <!-- /col-xs-12 -->
+
+                                </div>
+                                <!-- /form-group -->
+
+
+
+                            </tr>
+
+                            <tr>
+
+                                <td class="info"><b><span class="color">Total Amount RM</span></b></td>
+
+                                <td>
+                                    <div class="form-group">
+
+                                        <div class="col-xs-12">
+
+
+                                            <input type="text" name="msg" class="form-control" maxlength="20" size="20" name="dAcc" id="dAcc" required="required"></textarea>
+
+                                        </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+
+                    <!-- <p style="margin: 30px;" class="text-center">
+                            <a href="paysuccess.html">
+                        
+
+                            <input name="reset" value="Reset" class="btn btn-red" type="submit">
+
+                        </p> -->
+
+
+                    <div class="form-group">
+
+                        <div class="col-xs-12 text-center">
+                            <input class="btn btn-green" name="submitBtn" value="Submit" type="submit">
+
+                        </div>
+                        <!-- /col-xs-12 -->
+
+                    </div>
+                    <!-- /form-group -->
+
+
+
+
+
+                    <input name="reset" value="Reset" class="btn btn-green" type="reset">
+
+                    </p>
+
+                    <!-- </form> -->
+
+                </form>
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /content-region -->
+
+
+
+        <!-- Footer -->
+
+        <footer class="region-10 block-10 bg-color-grayDark1 text-color-light">
+
+            <div class="container">
+
+                <div class="row">
+
+
+
+
+                </div>
+                <!-- /region -->
+
+            </div>
+            <!-- /footer-left-region -->
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Start Footer Section
+		========================================== -->
+            <footer id="footer" class="bg-one">
+                <div class="container">
+                    <div class="row wow fadeInUp" data-wow-duration="500ms">
+                        <div class="col-lg-12">
+
+                            <!-- Footer Social Links -->
+                            <div class="social-icon">
+                                <ul>
+                                    <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
+                                </ul>
+                            </div>
+                            <!--/. End Footer Social Links -->
+
+                            <!-- copyright -->
+                            <div class="copyright text-center">
+                                <img src="img/logo.png" alt="Uveve" height="80px" width="80px" /> <br />
+                                <p>Copyright &copy; 2014. All Rights Reserved.</p>
+                            </div>
+                            <!-- /copyright -->
+
+                        </div>
+                        <!-- end col lg 12 -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </footer>
+            <!-- end footer -->
+
+            <!-- Back to Top
+		============================== -->
+            <a href="#" id="scrollUp"><i class="fa fa-angle-up fa-2x"></i></a>
+
+            <!-- end Footer Area
+		========================================== -->
+
+            <!-- 
+		Essential Scripts
+		=====================================-->
+
+            <!-- Main jQuery -->
+            <script src="js/jquery-1.12.2.min.js"></script>
+            <!-- Bootstrap 3.1 -->
+            <script src="js/bootstrap.min.js"></script>
+            <!-- Back to Top -->
+            <script src="js/jquery.scrollUp.min.js"></script>
+            <script src="js/classie.js"></script>
+            <!-- Owl Carousel -->
+            <script src="js/owl.carousel.min.js"></script>
+            <!-- Custom Scrollbar -->
+            <script src="js/jquery.nicescroll.min.js"></script>
+            <!-- jQuery Easing -->
+            <script src="js/jquery.easing-1.3.pack.js"></script>
+            <!-- wow.min Script -->
+            <script src="js/wow.min.js"></script>
+            <!-- For video responsive -->
+            <script src="js/jquery.fitvids.js"></script>
+            <!-- Custom js -->
+            <script src="js/custom.js"></script>
+
+</body>
+
+</html>
