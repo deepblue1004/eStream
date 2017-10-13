@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Bedroom Price</title>
+    <meta charset="utf-8" />
+
+    
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAKvUrN-Z_d0Zrpq_-fmAjw9zuZ9pB77EQ",
+    authDomain: "uveve-hostel-management.firebaseapp.com",
+    databaseURL: "https://uveve-hostel-management.firebaseio.com",
+    projectId: "uveve-hostel-management",
+    storageBucket: "uveve-hostel-management.appspot.com",
+    messagingSenderId: "769656976152"
+  };
+  firebase.initializeApp(config);
+</script>
+
+    <script src="jquery-1.11.3.min.js"></script>
+
+
+
+
+
+
+    
+
+    <script type="text/javascript">
+        $(function () {
+
+            $("#Add").click(function (e) {
+                var Hostel = $("#Hostel").val();
+                var Type = $("#Type").val();
+                var Size = $("#Size").val();
+                var Price = $("#Price").val();
+
+                if (Hostel == "" && Type == "" && Type == "" && Price == "")
+                    $("span").html("<h4 style=\"color:red\">Please enter Hostel or Type or Size or Price</h4>");
+                else {
+
+                    var user = firebase.auth().currentUser;
+
+
+
+                    var obj = new Object();
+                    obj.Hostel = Hostel;
+                    obj.Type = Type;
+                    obj.Size = Size;
+                    obj.Price = Price;
+                    obj.Uid = user.uid;
+
+                    // Get a key for a new City.
+                    var newPostKey = firebase.database().ref().child('Hostels').push().key;
+
+                    var updates = {};
+                    updates['/Hostels/' + newPostKey] = obj;
+                    updates['/user-Hostels/' + user.uid + '/' + newPostKey] = obj;
+
+                    firebase.database().ref().update(updates).then(function () {
+                        $("span").html('<h4 style=\"color:red\">Insert Successfully</h4>');
+                        $("#Hostel").val("");
+                        $("#Type").val("");
+                        $("#Size").val("");
+                        $("#Price").val("");
+                    });
+
+
+
+
+                }
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Bedroom Types and Prices</h1>
+    <span></span>
+    <br /> Hostel : <input type="text" id="Hostel" />
+    <br/>
+    <br /> Type : <input type="text" id="Type" />
+    <br/>
+    <br /> Size(sqft) : <input type="text" id="Size" />
+    <br/>
+    <br /> Price:
+    <input type="text" id="Price" />
+    <br/>
+    <br />
+    <button id="Add">Add</button>
+
+</body>
+
+</html>

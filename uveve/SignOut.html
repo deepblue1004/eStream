@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Meghna One page parallax responsive HTML Template ">
+
+    <meta name="author" content="Muhammad Morshed">
+
+    <title>Sign Out | Uveve Hostel</title>
+
+    <!-- Mobile Specific Meta
+		================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+
+    <!-- CSS
+		================================================== -->
+    <!-- Fontawesome Icon font -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <!-- Grid Component css -->
+    <link rel="stylesheet" href="css/component.css">
+    <!-- Slit Slider css -->
+    <link rel="stylesheet" href="css/slit-slider.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/main8.css">
+    <!-- Media Queries -->
+    <link rel="stylesheet" href="css/media-queries.css">
+
+    <!--
+		Google Font
+		=========================== -->
+
+    <!-- Oswald / Title Font -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <!-- Ubuntu / Body Font -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+
+    <!-- Modernizer Script for old Browsers -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAKvUrN-Z_d0Zrpq_-fmAjw9zuZ9pB77EQ",
+            authDomain: "uveve-hostel-management.firebaseapp.com",
+            databaseURL: "https://uveve-hostel-management.firebaseio.com",
+            projectId: "uveve-hostel-management",
+            storageBucket: "uveve-hostel-management.appspot.com",
+            messagingSenderId: "769656976152"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        
+        
+            $(function () {
+        
+              initApp();
+        
+               $(".signout").click(function (e) {
+                  firebase.auth().signOut();
+                  
+                });
+        
+            });
+        
+        
+        
+            function initApp() {
+              // Listening for auth state changes.
+              // [START authstatelistener]
+              firebase.auth().onAuthStateChanged(function(user) {
+        
+                if (user) {
+                  // User is signed in.
+        
+        
+                }
+                 else{
+                     alert("You have sign out successfully");
+                     window.location.href = "index.html";
+                 }
+              });
+              // [END authstatelistener]
+              }
+            </script>
+
+
+</head>
+
+<body>
+    <!-- 
+        Fixed Navigation
+        ==================================== -->
+	<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="index.html">
+                        <h1 id="logo">
+                            <img src="img/logo.png" alt="Uveve" width="50px" height="50px" />
+                        </h1>
+                    </a>
+                </div>
+    
+                <nav class="collapse navbar-collapse navbar-right">
+                    <ul id="nav" class="nav navbar-nav">
+                        <li><a href="welcomepage.html">Welcome</a></li>
+                        <li><a href="payment1.html">Payment</a></li>
+                        <li><a href="newfeedback.html">Feedback/Complaint</a></li>
+                        <li><a href="newrating.html">Review</a></li>
+                        <li><a href="UpdateProfile.html">Update Profile</a></li>
+                        <li><a href="SignOut.html">Sign Out</a></li>
+                        <!--<li><a href="index.html#showcase">Portfolio</a></li>
+                            <li><a href="index.html#blog">Blog</a></li>
+                            <li><a href="index.html#contact-us">Contact</a></li>-->
+                    </ul>
+    
+                </nav>
+                <!-- /.navbar-collapse -->
+            </div>
+        </header>
+        <!--
+            End Fixed Navigation
+            ==================================== -->
+    <!-- Sign In Profile
+		=========================================== -->
+    <section id="signin">
+        <div class="container">
+            <div class="row">
+
+                <br/><br/>
+                <!-- section title -->
+                <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                    <br/><br/>
+                    <h2>Sign Out </h2>
+                    <div class="border"></div>
+                </div>
+                <!-- /section title -->
+
+
+                <!-- Sign In -->
+                <div class="form-group">
+                    <form class="form-horizontal" role="form">
+                
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                                <input class="btn btn-primary signout" value="Sign Out" type="button">
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Do you want to rent a hostel? 
+  Uveve Management Hostel For Rent, 
+  Uveve is One of the Reputable Hostel Management Company 
+  That Trusted By Over Thoursands Of Tenants. 
+  Visit Us Today To Know More.">
+  <meta name="keywords" content="Uveve, Uveve management, Uveve Hostel, 
+  Uveve Student Hostel, Uveve Hostel For Rent, Room For Rent">
+  <meta name="author" content="Uveve">
+
+  <title> Update Profile | Uveve management</title>
+
+  <!-- Mobile Specific Meta
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+
+  <!-- CSS
+		================================================== -->
+  <!-- Fontawesome Icon font -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <!-- Grid Component css -->
+  <link rel="stylesheet" href="css/component.css">
+  <!-- Slit Slider css -->
+  <link rel="stylesheet" href="css/slit-slider.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Media Queries -->
+  <link rel="stylesheet" href="css/media-queries.css">
+
+  <!--
+		Google Font
+		=========================== -->
+
+  <!-- Oswald / Title Font -->
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+  <!-- Ubuntu / Body Font -->
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+
+  <!-- Modernizer Script for old Browsers -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  <script src="js/AccountFirebase.js"></script>
+
+  <script src="js/ProfileDetails2.js"></script>
+
+</head>
+
+<body>
+  <!-- 
+        Fixed Navigation
+        ==================================== -->
+  <header id="navigation" class="navbar navbar-inverse navbar-color">
+    <div class="container">
+      <div class="top-panel">
+        <button class="mynavtog" onclick="javascript:Toggle()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+        <a id="no-pad" href="#body"><img class="logo" src="img/logo.png" width="50px" height="50px" alt="uveve" /></a>
+        <div class="body-nav">
+          <ul>
+              <li><a href="welcomepage.html">Welcome</a></li>
+              <li><a href="payment1.html">Payment</a></li>
+              <li><a href="newfeedback.html">Feedback/Complaint</a></li>
+              <li><a href="newrating.html">Review</a></li>
+              <li><a href="UpdateProfile.html">Update Profile</a></li>
+              <li><a href="SignOut.html">Sign Out</a></li>
+            <li id="btn-search"><i class="fa fa-search" aria-hidden="true"></i></li>
+          </ul>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var cx = '005905430136159387705:v3y8chmhpfg';
+          var gcse = document.createElement('script');
+          gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+          $("#btn-search").click(function () {
+            $(".nav-search").toggle();
+          });
+        })();
+      </script>
+      <div class="nav-search">
+        <gcse:search></gcse:search>
+      </div>
+      <div class="body-down">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">News & Updates</a></li>
+          <li><a href="types">Type & Rates</a></li>
+          <li><a href="contactUs.html">Contact Us</a></li>
+          <li><a href="FAQ.html">FAQ</a></li>
+          <li><a href="SignInPage.html">Tenants Login</a></li>
+          <li>
+            <gcse:search></gcse:search>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <br><br><br>
+  <!-- Start Update Profile
+		=========================================== -->
+  <section id="update">
+    <div class="container">
+      <div class="row">
+
+        <!-- section title -->
+        <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+          <h2>UPDATE <span class="color">PROFILE</span></h2>
+          <div class="border"></div>
+        </div>
+        <!-- /section title -->
+
+        <!-- Update Form -->
+        <hr>
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-3">
+            <div class="text-center">
+              <img src="img/100.png" class="avatar img-circle" alt="avatar">
+              <h6>Upload a different photo...</h6>
+
+              <input class="form-control" type="file" accept="image/*" onchange="openFile(event)">
+              <input class="btn btn-primary" id="Upload" value="Upload" type="button">
+              <div id="process"></div>
+            </div>
+          </div>
+
+          <!-- edit form column -->
+          <div class="col-md-9 personal-info">
+            <h3>Personal info</h3>
+
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Name:</label>
+                <div class="col-lg-8">
+                  <input class="form-control name" placeholder="Jane" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Email Address:</label>
+                <div class="col-lg-8">
+                  <input class="form-control email" placeholder="jane@kitmail.com" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Mobile Number:</label>
+                <div class="col-lg-8">
+                  <input class="form-control mobile" placeholder="012-3456789" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label">Address:</label>
+                <div class="col-md-8">
+                  <input class="form-control address" placeholder="8, Jalan Kaki Lima, Taman Kaki, 78900, Kimpar, Perok." type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Emergency Contact Person:</label>
+                <div class="col-lg-8">
+                  <input class="form-control emerName" placeholder="Jane's Emergency" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-lg-3 control-label">Emergency Contact Number:</label>
+                <div class="col-lg-8">
+                  <input class="form-control emerMobile" placeholder="Jane's Emergency Number" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-3 control-label"></label>
+                <div class="col-md-8">
+                  <div><span id="insert"></span></div>
+                  <div><span id="error"></span></div>
+                  <input class="btn btn-primary save" value="Save Changes" type="button">
+                  <input class="btn btn-default cancel" value="Cancel" type="reset">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr>
+        <!-- ./End Update Form -->
+
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- end section -->
+  <br>
+  <!-- Start Footer Area
+		========================================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row wow fadeInUp" data-wow-duration="500ms">
+        <div class="col-lg-12">
+
+          <!-- Footer Social Links -->
+          <div class="social-icon">
+            <ul>
+              <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="https://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
+              <li><a href="https://www.likedin.com"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+          <!--/. End Footer Social Links -->
+
+          <!-- copyright -->
+          <div class="copyright text-center">
+            <a href="index.html">
+                              <img src="img/logo.png" alt="Uveve" width="80px" height="80px"/> 
+                          </a>
+            <br />
+
+            <p>Design And Developed by <a href="http://www.uveve.ml"> Uveve Management</a>. Copyright &copy; 2017. All Rights
+              Reserved.
+            </p>
+          </div>
+          <!-- /copyright -->
+
+          <div id="google_translate_element"></div>
+        </div>
+        <!-- end col lg 12 -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </footer>
+  <!-- end footer -->
+
+  <!-- Back to Top
+          ============================== -->
+  <a href="javascript:;" id="scrollUp">
+          <i class="fa fa-angle-up fa-2x"></i>
+      </a>
+
+  <!-- end Footer Area
+          ========================================== -->
+  <!-- Google Translate -->
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Do you want to rent a hostel? 
+		Uveve Management Hostel For Rent, 
+		Uveve is One of the Reputable Hostel Management Company 
+		That Trusted By Over Thoursands Of Tenants. 
+		Visit Us Today To Know More.">
+    <meta name="keywords" content="Uveve, Uveve management, Uveve Hostel, 
+		Uveve Student Hostel, Uveve Hostel For Rent, Room For Rent">
+    <meta name="author" content="Uveve">
+
+    <title> Sign In | Uveve management</title>
+
+    <!-- Mobile Specific Meta
+		================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+
+    <!-- CSS
+		================================================== -->
+    <!-- Fontawesome Icon font -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <!-- Grid Component css -->
+    <link rel="stylesheet" href="css/component.css">
+    <!-- Slit Slider css -->
+    <link rel="stylesheet" href="css/slit-slider.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Media Queries -->
+    <link rel="stylesheet" href="css/media-queries.css">
+
+    <!--
+		Google Font
+		=========================== -->
+
+    <!-- Oswald / Title Font -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+    <!-- Ubuntu / Body Font -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+
+    <!-- Modernizer Script for old Browsers -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAKvUrN-Z_d0Zrpq_-fmAjw9zuZ9pB77EQ",
+            authDomain: "uveve-hostel-management.firebaseapp.com",
+            databaseURL: "https://uveve-hostel-management.firebaseio.com",
+            projectId: "uveve-hostel-management",
+            storageBucket: "uveve-hostel-management.appspot.com",
+            messagingSenderId: "769656976152"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            initApp();
+
+            var people;
+            $('.radio').click(function(){
+                people = $("input:radio[name=People]:checked").val();
+            });
+            
+
+            $(".signin").click(function (e) {
+                var email = $(".txtEmail").val();
+                var password = $(".txtPassword").val();
+
+                if (email.length < 4) {
+                    $("#errMsg").html("<h4 style=\"color:red\">Please enter an email address.</h4>");
+                    return;
+                }
+
+                if (password.length < 4) {
+                    $("#errMsg").html("<h4 style=\"color:red\">Please enter a password.</h4>");
+                    return;
+                }
+
+
+                // Sign in with email and pass.
+                // [START authwithemail]
+                firebase.auth().signInWithEmailAndPassword(email, password)
+                    .then(function () {
+                        if (people == "user")
+                            window.location.href = "UpdateProfile.html";
+                        else if (people == "admin")
+                            window.location.href = "AddService.html";
+
+                    })
+                    .catch(function (error) {
+                        // Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        // [START_EXCLUDE]
+                        if (errorCode === 'auth/wrong-password')
+                            $("#errMsg").html("<h4 style=\"color:red\">Wrong password.</h4>");
+                        else
+                            $("#errMsg").html("<h4 style=\"color:red\">" + errorMessage + "</h4>");
+
+                        console.log(error);
+                    });
+
+            });
+
+
+            $(".signup").click(function (e) {
+                var email = $(".txtEmail").val();
+                var password = $(".txtPassword").val();
+                if (email.length < 4) {
+                    $("#errMsg").html("<h4 style=\"color:red\">Please enter an email address.</h4>");
+                    return;
+                }
+
+                if (password.length < 4) {
+                    $("#errMsg").html("<h4 style=\"color:red\">Please enter a password.</h4>");
+                    return;
+                }
+
+
+                // Sign in with email and pass.
+                // [START createwithemail]
+                firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+                    var user = firebase.auth().currentUser;
+                    user.sendEmailVerification()
+                        .then(function () {
+                            if (!user.emailVerified) { //email is not verify
+                                alert("Please go to verify your email!");
+                            }
+                            else
+                                window.location.href = "UpdateProfile.html";
+                        })
+                        .catch(function (e) {
+                            console.log(e);
+                        });
+
+                })
+                    .catch(function (error) {// Handle Errors here.
+                        var errorCode = error.code;
+                        var errorMessage = error.message;
+                        // [START_EXCLUDE]
+                        if (errorCode == 'auth/weak-password')
+                            $("#errMsg").html("<h4 style=\"color:red\">The password is too weak.</h4>");
+                        else
+                            $("#errMsg").html("<h4 style=\"color:red\">" + errorMessage + "</h4>");
+
+                        console.log(error);
+                        // [END_EXCLUDE]
+                    });
+                // [END createwithemail]
+
+            });
+        });
+
+        function initApp() {
+            // Listening for auth state changes.
+            // [START authstatelistener]
+            firebase.auth().onAuthStateChanged(function (user) {
+
+                if (user) {
+                    // User is signed in.
+
+                }
+            });
+            // [END authstatelistener]
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+    <header id="navigation" class="navbar navbar-inverse navbar-color">
+        <div class="container">
+            <div class="top-panel">
+                <button class="mynavtog" onclick="javascript:Toggle()">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="no-pad" href="#body"><img class="logo" src="img/logo.png" width="50px" height="50px" alt="uveve" /></a>
+                <div class="body-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">News & Updates</a></li>
+                        <li><a href="types">Type & Rates</a></li>
+                        <li><a href="contactUs.html">Contact Us</a></li>
+                        <li><a href="FAQ.html">FAQ</a></li>
+                        <li><a href="SignInPage.html">Tenants Login</a></li>
+                        <li id="btn-search"><i class="fa fa-search" aria-hidden="true"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Search Engine
+            (function () {
+                var cx = '005905430136159387705:v3y8chmhpfg';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+                $("#btn-search").click(function () {
+                    $(".nav-search").toggle();
+                });
+            })();
+        </script>
+        <div class="nav-search">
+            <gcse:search></gcse:search>
+        </div>
+        <div class="body-down">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">News & Updates</a></li>
+                <li><a href="types">Type & Rates</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+                <li><a href="SignInPage.html">Tenants Login</a></li>
+                <li>
+                    <gcse:search></gcse:search>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Sign In Profile
+		=========================================== -->
+    <section id="signin">
+        <div class="container">
+            <div class="row">
+
+                <!-- section title -->
+                <div class="title text-center wow fadeIn" data-wow-duration="500ms">
+                    <br/><br/><br/>
+                    <h2>Sign In <span class="color">PROFILE</span></h2>
+                    <div class="border"></div>
+                </div>
+                <!-- /section title -->
+
+
+                <!-- Sign In -->
+                <div class="form-group">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Email:</label>
+                            <div class="col-md-4">
+                                <input class="form-control txtEmail" type="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Password:</label>
+                            <div class="col-md-4">
+                                <input class="form-control txtPassword" type="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">ReCaptcha:</label>
+                            <div class="col-md-4">
+                                <div class="g-recaptcha" data-sitekey="6LcTmS0UAAAAANLwAn9sJlqhte0Tge-fIcXitUvt" required="required"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                                <label>User 
+                                    <input id="user" class="radio" name="People" type="radio" value="user"/>
+                                </label>&nbsp;&nbsp;
+                                <label>Admin
+                                    <input id="admin" class="radio" name="People" type="radio" value="admin"/>
+                                </label>
+                                <br/>
+                                <input class="btn btn-primary signin" value="Sign In" type="button">
+                                <!--<span></span>-->
+                                <input class="btn btn-primary signup" value="Sign Up" type="button">
+                                <br/>
+                                <span id="errMsg"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Start Footer Area
+		========================================== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row wow fadeInUp" data-wow-duration="500ms">
+                <div class="col-lg-12">
+
+                    <!-- Footer Social Links -->
+                    <div class="social-icon">
+                        <ul>
+                            <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="https://www.likedin.com"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <!--/. End Footer Social Links -->
+
+                    <!-- copyright -->
+                    <div class="copyright text-center">
+                        <a href="index.html">
+                                            <img src="img/logo.png" alt="Uveve" width="80px" height="80px"/> 
+                                        </a>
+                        <br />
+
+                        <p>Design And Developed by <a href="http://www.uveve.ml"> Uveve Management</a>. Copyright &copy; 2017.
+                            All Rights Reserved.
+                        </p>
+                    </div>
+                    <!-- /copyright -->
+
+
+
+
+                    <div id="google_translate_element"></div>
+                </div>
+                <!-- end col lg 12 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </footer>
+    <!-- end footer -->
+</body>
+
+</html>
